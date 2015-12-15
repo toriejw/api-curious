@@ -1,3 +1,6 @@
 %h1 Twitter Clone
 
+- flash.each do |type, msg|
+  = content_tag :div, msg, class: "flash_#{type}"
+
 = link_to "Log In", login_path
