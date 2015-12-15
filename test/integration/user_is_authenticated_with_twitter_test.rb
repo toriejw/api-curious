@@ -6,20 +6,6 @@ class UserIsAuthenticatedWithTwitterTest < ActionDispatch::IntegrationTest
     stub_omniauth
   end
 
-  def stub_omniauth
-    OmniAuth.config.test_mode = true
-    OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({
-        provider: "twitter",
-        uid: "1234",
-        extra: { raw_info: { screen_name: "candy",
-                             name: "Candy Cat" } } })
-  end
-
-  def login_user
-    visit root_path
-    click_link "Log In"
-  end
-
   test "visitor can create account using twitter" do
     old_user_count = User.count
 
