@@ -33,10 +33,10 @@ class UserIsAuthenticatedWithTwitterTest < ActionDispatch::IntegrationTest
     assert_equal 1, User.count - old_user_count
   end
 
-  test "user can login using twitter" do
+  test "user can log out and log in using twitter" do
     login_user
     click_link "Log out"
-    
+
     old_user_count = User.count
 
     assert_equal root_path, current_path
@@ -45,6 +45,11 @@ class UserIsAuthenticatedWithTwitterTest < ActionDispatch::IntegrationTest
     visit feed_path
 
     assert_equal root_path, current_path
+
+    login_user
+
     assert_equal 0, User.count - old_user_count
+    assert page.has_content?("Candy Cat")
+    assert page.has_content?("@candy")
   end
 end
