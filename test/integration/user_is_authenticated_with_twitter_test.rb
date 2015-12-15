@@ -10,8 +10,8 @@ class UserIsAuthenticatedWithTwitterTest < ActionDispatch::IntegrationTest
     OmniAuth.config.test_mode = true
     OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({
         provider: "twitter",
-        extra: { raw_info: { id_str: "1234",
-                             nickname: "candy",
+        uid: "1234",
+        extra: { raw_info: { screen_name: "candy",
                              name: "Candy Cat" } } })
   end
 
@@ -20,7 +20,6 @@ class UserIsAuthenticatedWithTwitterTest < ActionDispatch::IntegrationTest
     click_link "Log In"
 
     assert_equal feed_path, current_path
-    save_and_open_page
     assert page.has_content?("Candy Cat")
     assert page.has_content?("@candy")
   end
