@@ -1,6 +1,8 @@
 class SessionsController < ApplicationController
   def create
-    session[:user_id] = request.env["omniauth.auth"]["extra"]["raw_info"]["id_str"]
+    if user = User.from_omniauth(request.env["omniauth.auth"])
+      session[:user_id] = user.id
+    end
     redirect_to feed_path
   end
 end
