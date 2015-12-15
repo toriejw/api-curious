@@ -15,6 +15,11 @@ class UserIsAuthenticatedWithTwitterTest < ActionDispatch::IntegrationTest
                              name: "Candy Cat" } } })
   end
 
+  def login_user
+    visit root_path
+    click_link "Log In"
+  end
+
   test "visitor can create account using twitter" do
     visit root_path
     click_link "Log In"
@@ -26,6 +31,15 @@ class UserIsAuthenticatedWithTwitterTest < ActionDispatch::IntegrationTest
 
   test "user can login using twitter" do
     skip
-    # login_user
+    login_user
+
+    click_link "Log out"
+
+    assert_equal root_path, current_path
+    assert page.has_content?("You have successfully logged out.")
+
+    visit feed_path
+    
+    assert_equal root_path, current_path
   end
 end
