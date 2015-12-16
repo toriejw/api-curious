@@ -12,10 +12,10 @@ class TwitterServiceTest < ActiveSupport::TestCase
   test "returns tweets from twitter feed" do
     skip
     create_user_torie
-    service = TwitterService.new(User.find_by(nickname: "torie_jw"))
+    # service = TwitterService.new(User.find_by(nickname: "torie_jw"))
 
-    VCR.use_cassette("twitter-user-torie") do
-      service.tweets_from_feed
-    end
+  #   VCR.use_cassette("twitter-user-torie") do
+  #     service.tweets_from_feed
+  #   end
   end
 end

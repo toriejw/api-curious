@@ -4,12 +4,12 @@ require "rails/test_help"
 require "capybara/rails"
 require "mocha/mini_test"
 require "minitest/pride"
-require "vcr"
+# require "vcr"
 
-VCR.configure do |config|
-  config.cassette_library_dir = "fixtures/vcr_cassettes"
-  config.hook_into :webmock
-end
+# VCR.configure do |config|
+#   config.cassette_library_dir = "fixtures/vcr_cassettes"
+#   config.hook_into :webmock
+# end
 
 class ActiveSupport::TestCase
 end

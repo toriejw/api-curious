@@ -1,7 +1,8 @@
-%h1= current_user.name
-%h2= "@#{current_user.nickname}"
+.user-info
+  %h1= current_user.name
+  %h2= "@#{current_user.nickname}"
 
 = link_to "Log out", logout_path
 
-- @service.feed_tweet_content.each do |tweet_text|
-  %p= tweet_text
+-# - @service.feed_tweet_content.each do |tweet_text|
+-#   %p= tweet_text
