@@ -31,7 +31,6 @@ class UserProfileTest < ActionDispatch::IntegrationTest
       click_link "Candy Cat"
 
       assert_equal user_path(User.first), current_path
-      save_and_open_page
       within(".user-info") do
         assert page.has_content? "Candy Cat"
         assert page.has_content? "@candy"

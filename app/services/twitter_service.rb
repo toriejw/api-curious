@@ -17,6 +17,7 @@ class TwitterService
   end
 
   def tweets_from_feed
+    binding.pry
     client.home_timeline
   end
 
