@@ -19,7 +19,7 @@ class ActionDispatch::IntegrationTest
   include Capybara::DSL
 
   def login_user
-    TwitterService.stub_any_instance(:feed_tweet_content, ["test tweet 1", "test tweet2"]) do
+    TwitterService.stub_any_instance(:feed_tweet_content, ["test tweet 1", "test tweet 2"]) do
       visit root_path
       click_link "Log In"
     end
