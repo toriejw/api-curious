@@ -109,6 +109,7 @@ GEM
     mime-types (2.99)
     mini_portile2 (2.0.0)
     minitest (5.8.3)
+    minitest-stub_any_instance (1.0.1)
     mocha (1.1.0)
       metaclass (~> 0.0.1)
     multi_json (1.11.2)
@@ -226,6 +227,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   launchy
+  minitest-stub_any_instance
   mocha
   omniauth-twitter
   pg

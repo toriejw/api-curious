@@ -26,6 +26,7 @@ group :development, :test do
   gem 'capybara'
   gem 'mocha'
   gem 'vcr'
+  gem 'minitest-stub_any_instance'
 end
 
 group :development do
