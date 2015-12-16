@@ -11,8 +11,8 @@ class TwitterServiceTest < ActiveSupport::TestCase
 
   test "returns content from home feed" do
     VCR.use_cassette("twitter_service#tweets_from_feed") do
-      create_user_torie
-      service = TwitterService.new(User.find_by(nickname: "torie_jw"))
+      user = create_user_torie
+      service = TwitterService.new(user)
       tweets = service.tweets_from_feed
 
       assert_equal "F - Tancredi, 33, #14.  #CanWNT 108th appearance. Plays for @chicagoredstars, from Ancaster, ON @cityofHamilton (3/11)", tweets.first.text
@@ -21,14 +21,15 @@ class TwitterServiceTest < ActiveSupport::TestCase
   end
 
   test "returns user's tweets information" do
-    skip
     VCR.use_cassette("twitter_service#user_tweets") do
-      create_user_torie
-      service = TwitterService.new(User.find_by(nickname: "torie_jw"))
-      tweets = service.tweets_from_feed
+      user = create_user_torie
+      service = TwitterService.new(user)
+      tweets = service.user_tweets
 
-      assert_equal "Starting XI #CanWNT #Natal2015 https://t.co/ACVRkrVl9l", tweets.first.text
-      assert_equal "Canada Soccer", tweets.first.author
+      assert_equal "RT @kerrizor: Elixir School: Lessons in the Fundamentals of Elixir
+
+https://t.co/wAjp92fOBy", tweets.first.text
+      assert_equal "Torie Joy-Warren", tweets.first.author
     end
   end
 end
