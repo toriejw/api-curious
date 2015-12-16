@@ -7,16 +7,18 @@ class UserIsAuthenticatedWithTwitterTest < ActionDispatch::IntegrationTest
   end
 
   test "visitor can create account using twitter" do
-    old_user_count = User.count
+    TwitterService.stub_any_instance(:feed_tweet_content, ["test tweet 1", "test tweet2"]) do
+      old_user_count = User.count
 
-    visit root_path
-    click_link "Log In"
+      visit root_path
+      click_link "Log In"
 
-    assert_equal feed_path, current_path
-    assert page.has_content?("Candy Cat")
-    assert page.has_content?("@candy")
+      assert_equal feed_path, current_path
+      assert page.has_content?("Candy Cat")
+      assert page.has_content?("@candy")
 
-    assert_equal 1, User.count - old_user_count
+      assert_equal 1, User.count - old_user_count
+    end
   end
 
   test "user can log out and log in using twitter" do
