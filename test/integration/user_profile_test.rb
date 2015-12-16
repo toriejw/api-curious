@@ -11,15 +11,14 @@ class UserProfileTest < ActionDispatch::IntegrationTest
     user = User.find_by(nickname: "candy")
 
     assert_equal feed_path, current_path
-    save_and_open_page
     within(".user-info") do
       assert page.has_content? "Candy Cat"
       assert page.has_content? "@candy"
-      assert page.has_content? "Followers"
-      assert page.has_content? user.num_of_followers
-      assert page.has_content? "Following"
-      assert page.has_content? user.num_following
-      assert page.has_content? "Tweets"
+      assert page.has_content? "FOLLOWERS"
+      assert page.has_content? user.followers_count
+      assert page.has_content? "FOLLOWING"
+      assert page.has_content? user.following_count
+      assert page.has_content? "TWEETS"
       assert page.has_content? user.tweet_count
     end
   end

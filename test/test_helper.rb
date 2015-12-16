@@ -28,7 +28,10 @@ class ActionDispatch::IntegrationTest
         provider: "twitter",
         uid: "1234",
         extra: { raw_info: { screen_name: "candy",
-                             name: "Candy Cat" } },
+                             name: "Candy Cat",
+                             followers_count: 21,
+                             friends_count: 23,
+                             statuses_count: 56789 } },
         credentials: { token: "candy_treats", secret: "so_many_treats" } })
   end
 end

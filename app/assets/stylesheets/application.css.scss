@@ -1,5 +1,25 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+body {
+  background-color: #EFF5FB;
+}
+
+ .navbar {
+   background-color: white;
+ }
+
+ .panel-body .col-md-3 {
+   font-size: 70%;
+ }
+
+ .panel-body h1 {
+   font-size: 150%;
+ }
+
+ .panel-body h2 {
+   font-size: 100%;
+ }
+
  // *= require_tree .
  // *= require_self
