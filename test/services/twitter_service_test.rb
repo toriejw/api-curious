@@ -10,10 +10,22 @@ class TwitterServiceTest < ActiveSupport::TestCase
   end
 
   test "returns content from home feed" do
-    VCR.use_cassette("twitter_service#feed_tweet_content") do
+    VCR.use_cassette("twitter_service#tweets_from_feed") do
       create_user_torie
       service = TwitterService.new(User.find_by(nickname: "torie_jw"))
-      tweets = service.feed_tweet_content
+      tweets = service.tweets_from_feed
+
+      assert_equal "F - Tancredi, 33, #14.  #CanWNT 108th appearance. Plays for @chicagoredstars, from Ancaster, ON @cityofHamilton (3/11)", tweets.first.text
+      assert_equal "Canada Soccer", tweets.first.author
+    end
+  end
+
+  test "returns user's tweets information" do
+    skip
+    VCR.use_cassette("twitter_service#user_tweets") do
+      create_user_torie
+      service = TwitterService.new(User.find_by(nickname: "torie_jw"))
+      tweets = service.tweets_from_feed
 
       assert_equal "Starting XI #CanWNT #Natal2015 https://t.co/ACVRkrVl9l", tweets.first.text
       assert_equal "Canada Soccer", tweets.first.author

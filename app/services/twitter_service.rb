@@ -13,16 +13,8 @@ class TwitterService
     @uid = user.third_party_id.to_i
   end
 
-  def tweets
-
-  end
-
   def tweets_from_feed
-    client.home_timeline
-  end
-
-  def feed_tweet_content
-    tweets_from_feed.map { |tweet| extract_tweet_data(tweet) }
+    client.home_timeline.map { |tweet| extract_tweet_data(tweet) }
   end
 
   def user_tweets

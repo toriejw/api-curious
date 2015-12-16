@@ -25,7 +25,7 @@ class ActionDispatch::IntegrationTest
     sample_tweets = [OpenStruct.new(text: "test tweet 1"),
                      OpenStruct.new(text: "test tweet 2")]
 
-    TwitterService.stub_any_instance(:feed_tweet_content, sample_tweets) do
+    TwitterService.stub_any_instance(:tweets_from_feed, sample_tweets) do
       visit root_path
       click_link "Log In"
     end
