@@ -1,3 +1,5 @@
+require "ostruct"
+
 class TwitterService
   attr_reader :client, :uid
 
@@ -17,15 +19,21 @@ class TwitterService
   end
 
   def tweets_from_feed
-    binding.pry
     client.home_timeline
   end
 
   def feed_tweet_content
-    tweets_from_feed.map { |tweet| tweet.text }
+    tweets_from_feed.map { |tweet| extract_tweet_data(tweet) }
   end
 
   def user_tweets
-    client.user_timeline(uid).map { |tweet| tweet.text }
+    client.user_timeline(uid).map { |tweet| extract_tweet_data(tweet) }
+  end
+
+  def extract_tweet_data(tweet)
+    OpenStruct.new(text: tweet.text,
+                   author: tweet.user.name,
+                   user_name: tweet.user.screen_name,
+                   profile_image_url: tweet.user.profile_image_url)
   end
 end

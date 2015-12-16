@@ -26,8 +26,10 @@ class UserProfileTest < ActionDispatch::IntegrationTest
   test "user can see full profile" do
     login_user
     user = User.find_by(nickname: "candy")
+    sample_tweets = [OpenStruct.new(text: "Candy tweet 1"), 
+                     OpenStruct.new(text: "Candy tweet 2")]
 
-    TwitterService.stub_any_instance(:user_tweets, ["Candy tweet 1", "Candy tweet 2"]) do
+    TwitterService.stub_any_instance(:user_tweets, sample_tweets) do
       click_link "Candy Cat"
 
       assert_equal user_path(User.first), current_path
