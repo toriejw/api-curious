@@ -3,5 +3,4 @@
 
 = link_to "Log out", logout_path
 
-- @service.feed_tweet_content.each do |tweet_text|
-  %p= tweet_text
+= render partial: "partials/tweets_display", locals: {tweets: @service.feed_tweet_content}
