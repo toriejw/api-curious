@@ -19,7 +19,7 @@ class UserProfileTest < ActionDispatch::IntegrationTest
       assert page.has_content? "FOLLOWING"
       assert page.has_content? user.following_count
       assert page.has_content? "TWEETS"
-      assert page.has_content? user.tweet_count
+      assert page.has_content? user.tweets_count
     end
   end
 

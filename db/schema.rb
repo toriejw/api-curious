@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20151216031810) do
     t.integer  "followers_count"
     t.integer  "following_count"
     t.integer  "tweets_count"
+    t.string   "profile_image_url"
   end
 
 end

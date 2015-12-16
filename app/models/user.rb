@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
       user.followers_count     = raw_info["followers_count"]
       user.following_count     = raw_info["friends_count"]
       user.tweets_count        = raw_info["statuses_count"]
+      user.profile_image_url   = raw_info["profile_image_url"]
     end
   end
 end

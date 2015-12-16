@@ -1,8 +1,12 @@
 .col-md-4
   .user-info.panel.panel-default
     .panel-body
-      %h1= current_user.name
-      %h2= "@#{current_user.nickname}"
+      .row
+        .col-md-3
+          = image_tag(current_user.profile_image_url)
+        .col-md-9
+          %h1= current_user.name
+          %h2= "@#{current_user.nickname}"
 
       .row
         .col-md-3.text-center
