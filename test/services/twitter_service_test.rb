@@ -9,13 +9,14 @@ class TwitterServiceTest < ActiveSupport::TestCase
                    access_token_secret: ENV["torie_access_token_secret"] } )
   end
 
-  test "returns tweets from twitter feed" do
-    skip
-#   VCR.use_cassette("twitter-user-torie") do
+  test "returns content from home feed" do
+    VCR.use_cassette("twitter_service#feed_tweet_content") do
       create_user_torie
       service = TwitterService.new(User.find_by(nickname: "torie_jw"))
+      tweets = service.feed_tweet_content
 
-      service.tweets_from_feed
-#   end
+      assert_equal "Starting XI #CanWNT #Natal2015 https://t.co/ACVRkrVl9l", tweets.first.text
+      assert_equal "Canada Soccer", tweets.first.author
+    end
   end
 end

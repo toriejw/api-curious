@@ -10,7 +10,6 @@ class TwitterService
       config.access_token        = user.access_token
       config.access_token_secret = user.access_token_secret
     end
-
     @uid = user.third_party_id.to_i
   end
 

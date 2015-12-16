@@ -25,8 +25,8 @@ group :development, :test do
   gem 'pry'
   gem 'capybara'
   gem 'mocha'
-  gem 'vcr'
   gem 'minitest-stub_any_instance'
+  gem 'simplecov'
 end
 
 group :development do
@@ -35,5 +35,6 @@ group :development do
 end
 
 group :test do
-  # gem 'webmock'
+  gem 'vcr'
+  gem 'webmock'
 end
