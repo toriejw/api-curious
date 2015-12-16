@@ -1,27 +1,5 @@
 .col-md-4
-  .user-info.panel.panel-default
-    .panel-body
-      .row
-        .col-md-3
-          = image_tag(current_user.profile_image_url)
-        .col-md-9
-          %h1= current_user.name
-          %h2= "@#{current_user.nickname}"
-
-      .row
-        .col-md-3.text-center
-          TWEETS
-        .col-md-3.text-center
-          FOLLOWING
-        .col-md-3.text-center
-          FOLLOWERS
-      .row
-        .col-md-3.text-center
-          = current_user.tweets_count
-        .col-md-3.text-center
-          = current_user.following_count
-        .col-md-3.text-center
-          = current_user.followers_count
+  = render partial: "partials/profile_box"
 
 = link_to "Log out", logout_path
 

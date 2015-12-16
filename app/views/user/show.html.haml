@@ -1,0 +1,5 @@
+.col-md-4
+  = render partial: "partials/profile_box"
+
+.col-md-8
+  = render partial: "partials/tweets_display", locals: {tweets: @service.user_tweets}

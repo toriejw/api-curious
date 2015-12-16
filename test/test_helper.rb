@@ -7,12 +7,12 @@ require "minitest/pride"
 # require "minitest-stub_any_instance"
 # require "vcr"
 
-# VCR.configure do |config|
-#   config.cassette_library_dir = "fixtures/vcr_cassettes"
-#   config.hook_into :webmock
-# end
 
 class ActiveSupport::TestCase
+  # VCR.configure do |config|
+  #   config.cassette_library_dir = "test/vcr_cassettes"
+  #   config.hook_into :webmock
+  # end
 end
 
 class ActionDispatch::IntegrationTest

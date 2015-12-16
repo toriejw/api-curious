@@ -1,5 +1,5 @@
 class TwitterService
-  attr_reader :client
+  attr_reader :client, :uid
 
   def initialize(user)
     @client = Twitter::REST::Client.new do |config|
@@ -8,6 +8,8 @@ class TwitterService
       config.access_token        = user.access_token
       config.access_token_secret = user.access_token_secret
     end
+
+    @uid = user.third_party_id
   end
 
   def tweets
@@ -20,5 +22,9 @@ class TwitterService
 
   def feed_tweet_content
     tweets_from_feed.map { |tweet| tweet.text }
+  end
+
+  def user_tweets
+    @client.user_timeline(uid)
   end
 end
