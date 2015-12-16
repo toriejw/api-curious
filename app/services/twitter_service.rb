@@ -33,7 +33,7 @@ class TwitterService
   def extract_tweet_data(tweet)
     OpenStruct.new(text: tweet.text,
                    author: tweet.user.name,
-                   user_name: tweet.user.screen_name,
-                   profile_image_url: tweet.user.profile_image_url)
+                   author_user_name: tweet.user.screen_name,
+                   author_profile_image_url: tweet.user.profile_image_url)
   end
 end

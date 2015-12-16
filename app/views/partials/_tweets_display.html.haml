@@ -1,4 +1,11 @@
 - tweets.each do |tweet|
   .panel.panel-default
     .panel-body
-      = tweet.text
+      .row
+        .col-md-1
+          = image_tag(tweet.author_profile_image_url)
+        .col-md-11.container
+          = tweet.author
+          = "@#{tweet.author_user_name}"
+          %br
+          = tweet.text
