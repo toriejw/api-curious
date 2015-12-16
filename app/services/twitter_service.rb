@@ -9,7 +9,7 @@ class TwitterService
       config.access_token_secret = user.access_token_secret
     end
 
-    @uid = user.third_party_id
+    @uid = user.third_party_id.to_i
   end
 
   def tweets
@@ -17,7 +17,7 @@ class TwitterService
   end
 
   def tweets_from_feed
-    @client.home_timeline
+    client.home_timeline
   end
 
   def feed_tweet_content
@@ -25,6 +25,6 @@ class TwitterService
   end
 
   def user_tweets
-    @client.user_timeline(uid)
+    client.user_timeline(uid).map { |tweet| tweet.text }
   end
 end

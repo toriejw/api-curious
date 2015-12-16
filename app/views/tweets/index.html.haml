@@ -1,6 +1,6 @@
 .col-md-4
   = render partial: "partials/profile_box"
+  = link_to "Log out", logout_path
 
-= link_to "Log out", logout_path
-
-= render partial: "partials/tweets_display", locals: {tweets: @service.feed_tweet_content}
+.col-md-8
+  = render partial: "partials/tweets_display", locals: {tweets: @service.feed_tweet_content}
