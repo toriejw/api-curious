@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "/feed", to: "tweets#index"
   get "/compose-tweet", to: "tweets#new"
   post "/create-tweet", to: "tweets#create"
+  get "/favorite-tweet", to: "tweets#favorite"
 
   get "/logout", to: "sessions#destroy"
 

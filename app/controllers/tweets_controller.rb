@@ -12,4 +12,8 @@ class TweetsController < ApplicationController
     service.compose_tweet(params["tweet_content"])
     redirect_to feed_path
   end
+
+  def favorite
+    
+  end
 end

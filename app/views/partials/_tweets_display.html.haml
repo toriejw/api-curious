@@ -9,3 +9,7 @@
           = "@#{tweet.author_user_name}"
           %br
           = tweet.text
+          %br
+          %br
+          = link_to favorite_tweet_path do
+            %span.glyphicon.glyphicon-heart
