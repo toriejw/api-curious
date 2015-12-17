@@ -1,0 +1,11 @@
+.text-center
+  %h1 Compose new Tweet
+
+  %br
+  %br
+
+  = form_tag create_tweet_path do
+    = text_field_tag "tweet_content", "What's happening?", maxlength: 140, size: 50
+    %br
+    %br
+    = submit_tag "Tweet"

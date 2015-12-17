@@ -27,4 +27,8 @@ class TwitterService
                    author_user_name: tweet.user.screen_name,
                    author_profile_image_url: tweet.user.profile_image_url)
   end
+
+  def compose_tweet(content)
+    # client.update(content)
+  end
 end
