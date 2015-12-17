@@ -1,7 +1,11 @@
+require 'will_paginate/array'
+
 class TweetsController < ApplicationController
   def index
     if !current_user
       redirect_to root_path
+    else
+      @tweets = service.tweets_from_feed.paginate(page: params[:page], per_page: 10)
     end
   end
 
