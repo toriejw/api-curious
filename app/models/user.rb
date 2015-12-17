@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
       user.profile_image_url   = raw_info["profile_image_url"]
     end
 
-    check_for_updates(user, user_info)
+    # check_for_updates(user, user_info)
   end
 
   def self.check_for_updates(user, user_info)
