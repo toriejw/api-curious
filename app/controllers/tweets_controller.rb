@@ -5,7 +5,11 @@ class TweetsController < ApplicationController
     end
   end
 
+  def new
+  end
+
   def create
     service.compose_tweet(params["tweet_content"])
+    redirect_to feed_path
   end
 end

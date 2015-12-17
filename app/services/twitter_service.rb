@@ -29,6 +29,6 @@ class TwitterService
   end
 
   def compose_tweet(content)
-    # client.update(content)
+    client.update(content)
   end
 end
