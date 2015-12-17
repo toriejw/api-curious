@@ -23,12 +23,18 @@ class TwitterService
 
   def extract_tweet_data(tweet)
     OpenStruct.new(text: tweet.text,
+                   id: tweet.id,
                    author: tweet.user.name,
                    author_user_name: tweet.user.screen_name,
-                   author_profile_image_url: tweet.user.profile_image_url)
+                   author_profile_image_url: tweet.user.profile_image_url,
+                   favorited?: tweet.favorited?)
   end
 
   def compose_tweet(content)
     client.update(content)
+  end
+
+  def favorite_tweet(id)
+    client.favorite(id.to_i)
   end
 end

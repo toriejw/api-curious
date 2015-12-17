@@ -14,6 +14,7 @@ class TweetsController < ApplicationController
   end
 
   def favorite
-    
+    service.favorite_tweet(params["tweet_id"])
+    redirect_to feed_path
   end
 end

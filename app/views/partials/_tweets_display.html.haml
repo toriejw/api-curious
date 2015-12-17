@@ -11,5 +11,10 @@
           = tweet.text
           %br
           %br
-          = link_to favorite_tweet_path do
-            %span.glyphicon.glyphicon-heart
+          - if tweet.favorited?
+            .favorited
+              %span.glyphicon.glyphicon-heart
+          - else
+            .un-favorited
+              = link_to favorite_tweet_path(tweet_id: tweet.id) do
+                %span.glyphicon.glyphicon-heart
